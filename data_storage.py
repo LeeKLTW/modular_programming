@@ -29,24 +29,39 @@ def items():
 
 
 def products():
-    pass
+    global _products
+    return _products
 
 
 def locations():
-    pass
+    global _locations
+    return _locations
 
 
 def add_item(product_code, location_code):
-    pass
+    global _items
+    _items.append((product_code,location_code))
+    _save_items()
+
 
 
 def remove_item(product_code, location_code):
-    pass
+    global _items
+    for i in range(len(_items)):
+        p_code, l_code = _items[i]
+        if p_code == product_code and l_code == location_code:
+            del items[i]
+            _save_items()
+            return True
+    return False
 
 
-def set_product(product):
+def set_product(products):
+    global _products
+    _products = products
     pass
 
 
 def set_location(locations):
-    pass
+    global _locations
+    _locations = locations
