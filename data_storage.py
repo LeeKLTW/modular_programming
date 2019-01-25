@@ -1,9 +1,31 @@
+import json
+import os
+
+
+def _load_items():
+    global _items
+    if os.path.exists('items.json'):
+        f = open('item.json', 'r')
+        _items = json.load(f.read())
+        f.close()
+    else:
+        _items = []
+
+
+def _save_items():
+    global _items
+    f = open('item.json', 'w')
+    f.write(json.dump(_items))
+    f.close()
+
+
 def init():
-    pass
+    _load_items()
 
 
 def items():
-    pass
+    global _items
+    return _items
 
 
 def products():
