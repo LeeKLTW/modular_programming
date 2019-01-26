@@ -40,9 +40,8 @@ def locations():
 
 def add_item(product_code, location_code):
     global _items
-    _items.append((product_code,location_code))
+    _items.append((product_code, location_code))
     _save_items()
-
 
 
 def remove_item(product_code, location_code):
