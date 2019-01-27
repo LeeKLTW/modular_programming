@@ -54,4 +54,31 @@ def prompt_for_product():
 
 
 def prompt_for_location():
-    pass
+    while True:
+        print()
+        print("Select a location:")
+        print()
+        n = 1
+        for code, description in data_storage.locations():
+            print(f"{n}. {code} - {description}")
+            n +=1
+        s = input("> ").strip()
+        if s == "":return None
+
+        try:
+            n = int(s)
+        except ValueError:
+            n = -1
+
+        if n <1 or n>len(data_storage.locations()):
+            print(f"Invalid option: {s}")
+            continue
+
+        location_code = data_storage.locations()[n-1][0]
+        return location_code
+
+def show_report(report):
+    print()
+    for line in report:
+        print(line)
+    print()
