@@ -1,3 +1,6 @@
+import data_storage
+
+
 def prompt_for_action():
     while True:
         print()
@@ -25,7 +28,29 @@ def prompt_for_action():
 
 
 def prompt_for_product():
-    pass
+    while True:
+        print()
+        print("Select a product:")
+        print()
+        n = 1
+        for code, description, desired_number in data_storage:
+            print(f'{n}. {code} -{description}')
+            n += 1
+        s = input("> ").strip()
+        if s == "": return None
+
+        try:
+            n = int(s)
+        except ValueError:
+            n = -1
+
+        if n < 1 or n > len(data_storage.products()):
+            print(f"Invalid option:{s}")
+            continue
+
+        product_code = data_storage.products()[n - 1][0]
+
+        return product_code
 
 
 def prompt_for_location():
