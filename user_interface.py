@@ -16,7 +16,7 @@ def prompt_for_action():
         if action == "A":
             return "ADD"
         elif action == "R":
-            return "REMOE"
+            return "REMOVE"
         elif action == "C":
             return "INVENTORY_REPORT"
         elif action == "O":
