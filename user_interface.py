@@ -33,7 +33,7 @@ def prompt_for_product():
         print("Select a product:")
         print()
         n = 1
-        for code, description, desired_number in data_storage:
+        for code, description, desired_number in data_storage.products():
             print(f'{n}. {code} -{description}')
             n += 1
         s = input("> ").strip()
@@ -83,6 +83,7 @@ def show_report(report):
     for line in report:
         print(line)
     print()
+
 
 def show_error(err_msg):
     print()
