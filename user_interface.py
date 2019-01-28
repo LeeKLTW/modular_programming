@@ -83,3 +83,8 @@ def show_report(report):
     for line in report:
         print(line)
     print()
+
+def show_error(err_msg):
+    print()
+    print(err_msg)
+    print()
